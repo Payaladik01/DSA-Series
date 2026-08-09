@@ -3,25 +3,16 @@
 using namespace std;
 void bubbleSort(vector<int>& arr, int n)
 {   
-    for(int i = 1; i<n; i++) {
-        //for round 1 to n-1
-        bool swapped = false;
+    for(int i = 0; i < n-1; i++ ) {
+        int minIndex = i;
         
-        for(int j =0; j<n-i; j++) {
+        for(int j = i+1; j<n; j++) {
             
-            //process element till n-i th index
-            if(arr[j] > arr[j+1]) {
-                swap(arr[j], arr[j+1]);
-                swapped = true;
-            }
+            if(arr[j] < arr[minIndex]) 
+                minIndex = j;
             
         }
-        
-        if(swapped == false) {
-            //already sorted
-            break;
-        }
-           
+        swap(arr[minIndex], arr[i]);
     }
 }
 int main(){
@@ -30,17 +21,16 @@ int main(){
     cin>>n;
 
     vector<int>arr(n);
+    cout<<"Enter"<<n<<"Elements:"<<endl;
 
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
-    bubbleSort(arr, n);
-    cout<<"The sorted elements in array are:"<<endl;
-    for(int i=0;i<n;i++){
-        cout<<arr[i]<<"";
-        
+    selectionSort(arr, n);
+    for(int i=0; i<n; i++){
+        cout<<arr[i]<<endl;
+
     }
     cout<<endl;
     return 0;
-
 }
