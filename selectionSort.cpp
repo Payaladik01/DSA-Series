@@ -1,51 +1,37 @@
-#include <iostream>
+#include<iostream>
+#include<vector>
 using namespace std;
 
-// Function to perform selection sort
-void selectionSort(int arr[], int n) {
-    for(int i = 0; i < n - 1; i++) {
-        int minIndex = i; // Assume the current index has the minimum element
+void selectionSort(vector<int>& arr, int n)
+{   
+    for(int i = 0; i < n-1; i++ ) {
+        int minIndex = i;
         
-        // Find the index of the minimum element in the unsorted array
-        for(int j = i + 1; j < n; j++) {
-            if(arr[j] < arr[minIndex]) {
+        for(int j = i+1; j<n; j++) {
+            
+            if(arr[j] < arr[minIndex]) 
                 minIndex = j;
-            }
+            
         }
-        
-        // Swap the found minimum element with the first element
-        if(minIndex != i) {
-            int temp = arr[i];
-            arr[i] = arr[minIndex];
-            arr[minIndex] = temp;
-        }
+        swap(arr[minIndex], arr[i]);
     }
 }
-
-int main() {
+int main(){
     int n;
- = 0; i < n; i++) {
-        cin >> arr[i];
+    cout<<"Enter the number of elements in array:"<<endl;
+    cin>>n;
+
+    vector<int>arr(n);
+    cout<<"Enter"<<n<<"Elements:"<<endl;
+
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
     }
-    
-    // Calling the sorting function
     selectionSort(arr, n);
-    
-    // Printing the sorted array
-    cout << "\nSorted array in ascending order:\n";
-    for(int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
+    for(int i=0; i<n; i++){
+        cout<<arr[i]<<endl;
+
     }
-    cout << endl;
-    
+    cout<<endl;
     return 0;
-}    
-    // Taking input for the size of the array
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    
-    int arr[n];
-    
-    // Taking input for the array elements
-    cout << "Enter " << n << " elements:\n";
-    for(int i
+}
